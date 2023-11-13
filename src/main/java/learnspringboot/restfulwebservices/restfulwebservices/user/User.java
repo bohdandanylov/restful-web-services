@@ -1,11 +1,16 @@
 package learnspringboot.restfulwebservices.restfulwebservices.user;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class User {
 
     private Integer id;
+    @Size(min=2, max=20, message = "The name must be between 2 and 20 characters.")
     private String name;
+    @Past(message = "The birthday must be in the past.")
     private LocalDate birthDate;
 
     public User(Integer id, String name, LocalDate birthDate) {
